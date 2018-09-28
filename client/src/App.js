@@ -7,6 +7,8 @@ import Layout from "./components/layouts/Layout";
 import NewsItemDetail from "./components/presentation/NewsItemDetail";
 import { Provider } from "react-redux";
 import store from "./stores/store";
+import NewsArticle from "./components/containers/NewsArticle";
+
 class App extends Component {
   render() {
     return (
@@ -15,7 +17,7 @@ class App extends Component {
           <Layout>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/news/:id" component={NewsItemDetail} />
+            <Route path="/news/:id" component={NewsArticle} />
           </Layout>
         </BrowserRouter>
       </Provider>
