@@ -15,16 +15,22 @@ class NewsArticle extends Component {
             Eye Witness, Eric Barnes said "When I heard it Squawk in the sky above me, I thought I was done for"`
     };
 
-    this.props.dispatch(fetchNewsItem(fakeNewsItem));
+    this.props.dispatch(fetchNewsItem(this.props.match.params.id));
   }
 
   render() {
-    let { newsItem } = this.props;
+    let { newsItem, newsItemLoading } = this.props;
 
     return (
       <div>
         <h2>News Story</h2>
-        <ul>{newsItem ? <NewsItemDetail data={newsItem} /> : null}</ul>
+        <ul>
+          {!newsItemLoading ? (
+            <NewsItemDetail data={newsItem} />
+          ) : (
+            <div>Loading</div>
+          )}
+        </ul>
       </div>
     );
   }
@@ -32,7 +38,8 @@ class NewsArticle extends Component {
 
 const mapStateToProps = state => {
   return {
-    newsItem: state.news.newsItem
+    newsItem: state.news.newsItem,
+    newsItemLoading: state.news.newsItemLoading
   };
 };
 

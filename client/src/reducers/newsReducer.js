@@ -2,7 +2,8 @@ import constants from "../constants/actionTypes";
 
 const initialState = {
   news: [],
-  newsItem: {}
+  newsItem: {},
+  newItemLoading: true
 };
 export default (state = initialState, action) => {
   const updated = Object.assign({}, state);
@@ -12,8 +13,11 @@ export default (state = initialState, action) => {
       return updated;
     case constants.NEWSITEM_RECEIVED:
       updated["newsItem"] = action.newsItem;
+      updated["newsItemLoading"] = false;
       return updated;
-
+    case constants.NEWSITEM_LOADING:
+      updated["newsItemLoading"] = true;
+      return updated;
     default:
       return state;
   }

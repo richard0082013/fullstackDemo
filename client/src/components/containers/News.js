@@ -5,19 +5,19 @@ import { fetchNews } from "../../actions/actions";
 
 class News extends Component {
   componentDidMount() {
-    var fakeNews = [
-      {
-        id: "1",
-        title: "Mad owl chases car",
-        teaser: "Mad owl seen tormenting drivers in Morecambe"
-      },
-      {
-        id: "2",
-        title: "Owl stowaway",
-        teaser: "Despicable owl impersonates passenger to board flight to Luton"
-      }
-    ];
-    this.props.dispatch(fetchNews(fakeNews));
+    // var fakeNews = [
+    //   {
+    //     id: "1",
+    //     title: "Mad owl chases car",
+    //     teaser: "Mad owl seen tormenting drivers in Morecambe"
+    //   },
+    //   {
+    //     id: "2",
+    //     title: "Owl stowaway",
+    //     teaser: "Despicable owl impersonates passenger to board flight to Luton"
+    //   }
+    // ];
+    this.props.dispatch(fetchNews());
   }
   render() {
     const newsItems = this.props.news.map((news, i) => {
